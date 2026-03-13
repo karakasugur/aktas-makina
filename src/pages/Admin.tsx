@@ -42,21 +42,21 @@ const Admin = () => {
     }
   };
 
-  const updateService = (index: number, field: string, value: string) => {
+  const updateService = (index: number, field: 'title' | 'description' | 'icon', value: string) => {
     const services = [...content.services];
     services[index] = { ...services[index], [field]: value };
     setContent({ ...content, services });
   };
 
-  const updateMachine = (index: number, field: string, value: string) => {
+  const updateMachine = (index: number, field: 'title' | 'description' | 'image', value: string) => {
     const machines = [...content.machines];
     machines[index] = { ...machines[index], [field]: value };
     setContent({ ...content, machines });
   };
 
-  const updateSlider = (index: number, field: string, value: string) => {
+  const updateSlider = (index: number, value: string) => {
     const sliderImages = [...content.sliderImages];
-    sliderImages[index] = { ...sliderImages[index], [field]: value };
+    sliderImages[index] = value;
     setContent({ ...content, sliderImages });
   };
 
@@ -187,8 +187,7 @@ const Admin = () => {
             {content.sliderImages.map((s, i) => (
               <div key={i} className="bg-card rounded-lg p-4 border border-border space-y-2">
                 <p className="text-xs font-medium text-muted-foreground">Slider {i + 1}</p>
-                <input className={inputClass} placeholder="Görsel URL" value={s.image} onChange={(e) => updateSlider(i, "image", e.target.value)} />
-                <input className={inputClass} placeholder="Açıklama" value={s.caption} onChange={(e) => updateSlider(i, "caption", e.target.value)} />
+                <input className={inputClass} placeholder="Görsel URL" value={s} onChange={(e) => updateSlider(i, e.target.value)} />
               </div>
             ))}
           </div>
