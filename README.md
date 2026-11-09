@@ -1,73 +1,35 @@
-# Welcome to your Lovable project
+# Aktaş Grup Web Sitesi
 
-## Project info
+<!-- Author: UKARAKAS | Date: 09.11.2026 | Project notes in Turkish -->
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+[www.aktasmakinagrup.com](https://www.aktasmakinagrup.com): React + Vite ile yapılmış site. Admin paneli ve iletişim formu için hostingde küçük PHP dosyaları çalışır (`public/api`). Site Turhost'ta barınır.
 
-## How can I edit this code?
+## Siteyi güncelleme (Turhost)
 
-There are several ways of editing your application.
+1. `main` dalına yapılan her değişiklikten sonra GitHub siteyi kendisi derler ve hazır zip'i şuraya koyar:
+   **https://github.com/karakasugur/aktas-makina/releases/download/guncel-site/site.zip**
+2. Zip'i indirin.
+3. Turhost panelinde **Dosya Yöneticisi**'ni açın, sitenin klasörüne (`public_html`) gidin.
+4. Zip'i bu klasöre yükleyin ve **"Çıkart / Extract"** deyin. Var olan dosyaların üzerine yazmasına izin verin.
+5. Yüklediğiniz zip dosyasını silin.
 
-**Use Lovable**
+**Önemli:** `api/data` ve `uploads` klasörlerini **silmeyin**. Panelden kaydedilen içerik, admin şifresi, gelen mesajlar ve yüklenen görseller oradadır. Zip bu klasörlerdeki verilerin üzerine yazmaz.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Admin paneli
 
-Changes made via Lovable will be committed automatically to this repo.
+- Adres: `https://www.aktasmakinagrup.com/admin`
+- **İlk giriş:** Panel sizden yeni bir şifre ister. Site yüklendikten hemen sonra bu şifreyi belirleyin.
+- **Şifreyi unutursanız:** Dosya Yöneticisi'nde `api/data/admin.php` dosyasını silin, sonra panele girip yeni şifre belirleyin.
+- Panelden: iletişim bilgileri, WhatsApp numarası, ana sayfa metinleri, hakkımızda, hizmetler ve makineler (görsel yükleme dahil) düzenlenir.
+- **Gelen Mesajlar** sekmesinde iletişim formundan gelen tüm mesajlar saklanır. Aynı mesaj e-posta olarak da gönderilir.
 
-**Use your preferred IDE**
+## Geliştirme
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install --legacy-peer-deps
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Yerelde PHP olmadığı için site varsayılan içerikle açılır; admin paneli "sunucuya ulaşılamadı" der. Bu normaldir.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+`scripts/smoke-test.sh` PHP API'sini uçtan uca dener; GitHub Actions her push'ta bunu çalıştırır.

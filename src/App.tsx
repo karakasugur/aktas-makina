@@ -11,6 +11,7 @@ import Machines from "./pages/Machines";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import { ContentProvider } from "@/lib/content"; // UKARAKAS 09.11.2026 - server-side content
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        {/* UKARAKAS 09.11.2026 - load content from the server once for all pages */}
+        <ContentProvider>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -30,6 +33,7 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </ContentProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

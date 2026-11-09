@@ -1,0 +1,8 @@
+# Author: UKARAKAS | Date: 09.11.2026 | Private data (password hash, messages): never served directly
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>

@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import { usePageTitle } from "@/lib/content"; // UKARAKAS 09.11.2026 - page title
 import { Shield, Clock, Award, Users, ThumbsUp, Headphones } from "lucide-react";
 
 const reasons = [
@@ -41,6 +42,7 @@ const reasons = [
 ];
 
 const Services = () => {
+  usePageTitle("Neden Biz"); // UKARAKAS 09.11.2026
   return (
     <Layout>
       <section className="hero-gradient py-16 md:py-20">

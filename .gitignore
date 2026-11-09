@@ -97,7 +97,7 @@ public/build/
 
 # Gatsby build directory
 .cache/
-public/
+# UKARAKAS 09.11.2026 - 'public/' removed: Vite copies it into the site (PHP API, .htaccess, icons)
 
 # Nuxt.js build directory
 .nuxt/
@@ -108,3 +108,12 @@ dist/
 
 # Vitest coverage directory
 coverage/
+
+# Built site package
+site.zip
+
+# UKARAKAS 09.11.2026 - server-side data and uploads never belong in git
+public/api/data/*
+!public/api/data/.htaccess
+public/uploads/*
+!public/uploads/.htaccess

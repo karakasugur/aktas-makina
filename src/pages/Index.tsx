@@ -1,18 +1,16 @@
 import Layout from "@/components/Layout";
-import { getContent } from "@/lib/defaultContent";
-import { Wrench, Settings, Package, Phone } from "lucide-react";
+// UKARAKAS 09.11.2026 - server-side content, shared service icons (ShoppingCart was missing), WhatsApp CTA
+import { useContent, usePageTitle } from "@/lib/content";
+import { Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroChillerImg from "@/assets/hero-chiller.webp";
-
-const iconMap: Record<string, React.ReactNode> = {
-  Wrench: <Wrench size={32} />,
-  Settings: <Settings size={32} />,
-  Package: <Package size={32} />,
-  Phone: <Phone size={32} />,
-};
+import { ServiceIcon } from "@/lib/icons";
+import { telLink, whatsappLink } from "@/lib/contact";
+import { WhatsAppIcon } from "@/components/WhatsAppButton";
 
 const Index = () => {
-  const content = getContent();
+  const content = useContent();
+  usePageTitle();
 
   return (
     <Layout>
@@ -65,7 +63,7 @@ const Index = () => {
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center text-primary">
-                  {iconMap[service.icon] || <Wrench size={32} />}
+                  <ServiceIcon name={service.icon} />
                 </div>
                 <h3 className="font-heading font-bold text-lg text-foreground mb-2">{service.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
@@ -84,13 +82,26 @@ const Index = () => {
           <p className="text-muted-foreground mb-6">
             7/24 acil servis desteği ile yanınızdayız.
           </p>
-          <a
-            href={`tel:${content.contact.phone1.replace(/\s/g, "")}`}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-lg text-lg hover:bg-accent transition-colors"
-          >
-            <Phone size={20} />
-            {content.contact.phone1}
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href={telLink(content.contact.phone1)}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-bold rounded-lg text-lg hover:bg-accent transition-colors"
+            >
+              <Phone size={20} />
+              {content.contact.phone1}
+            </a>
+            {content.contact.whatsapp.trim() && (
+              <a
+                href={whatsappLink(content.contact.whatsapp, "Merhaba, servis talebim var.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold rounded-lg text-lg hover:opacity-90 transition-opacity"
+              >
+                <WhatsAppIcon size={22} />
+                WhatsApp'tan Yazın
+              </a>
+            )}
+          </div>
         </div>
       </section>
     </Layout>

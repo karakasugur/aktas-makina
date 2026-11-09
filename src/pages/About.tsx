@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { getContent } from "@/lib/defaultContent";
+import { useContent, usePageTitle } from "@/lib/content"; // UKARAKAS 09.11.2026 - server-side content
 import { Shield, Award, Users } from "lucide-react";
 
 const values = [
@@ -9,7 +9,8 @@ const values = [
 ];
 
 const About = () => {
-  const content = getContent();
+  const content = useContent();
+  usePageTitle("Hakkımızda");
 
   return (
     <Layout>

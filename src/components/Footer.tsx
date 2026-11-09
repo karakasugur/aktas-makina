@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { getContent } from "@/lib/defaultContent";
+import { useContent } from "@/lib/content"; // UKARAKAS 09.11.2026 - server-side content
+import { telLink } from "@/lib/contact";
 
 const Footer = () => {
-  const content = getContent();
+  const content = useContent();
 
   return (
     <footer className="bg-foreground text-primary-foreground">
@@ -48,11 +49,12 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <Phone size={16} className="shrink-0" />
                 {/* UKARAKAS 09.11.2026 - show only phone1, as a clickable tel link */}
-                <a href={`tel:${content.contact.phone1.replace(/\s/g, "")}`} className="hover:underline">{content.contact.phone1}</a>
+                <a href={telLink(content.contact.phone1)} className="hover:underline">{content.contact.phone1}</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="shrink-0" />
-                <span>{content.contact.email}</span>
+                {/* UKARAKAS 09.11.2026 - clickable e-mail */}
+                <a href={`mailto:${content.contact.email}`} className="hover:underline">{content.contact.email}</a>
               </li>
             </ul>
           </div>
