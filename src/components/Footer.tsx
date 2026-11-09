@@ -47,7 +47,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="shrink-0" />
-                <span>{content.contact.phone1} / {content.contact.phone2}</span>
+                {/* UKARAKAS 09.11.2026 - show only phone1, as a clickable tel link */}
+                <a href={`tel:${content.contact.phone1.replace(/\s/g, "")}`} className="hover:underline">{content.contact.phone1}</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="shrink-0" />

@@ -53,7 +53,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-heading font-semibold text-foreground">Telefon</h3>
                     <a href={`tel:${content.contact.phone1.replace(/\s/g, "")}`} className="text-muted-foreground text-sm mt-1 block hover:text-primary transition-colors">{content.contact.phone1}</a>
-                    <a href={`tel:${content.contact.phone2.replace(/\s/g, "")}`} className="text-muted-foreground text-sm block hover:text-primary transition-colors">{content.contact.phone2}</a>
+                    {/* UKARAKAS 09.11.2026 - phone2 removed */}
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

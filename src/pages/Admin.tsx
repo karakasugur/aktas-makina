@@ -198,12 +198,9 @@ const Admin = () => {
           <h2 className={sectionTitle}>İletişim Bilgileri</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div>
-              <label className={labelClass}>Telefon 1</label>
+              {/* UKARAKAS 09.11.2026 - single phone field, phone2 removed */}
+              <label className={labelClass}>Telefon</label>
               <input className={inputClass} value={content.contact.phone1} onChange={(e) => setContent({ ...content, contact: { ...content.contact, phone1: e.target.value } })} />
-            </div>
-            <div>
-              <label className={labelClass}>Telefon 2</label>
-              <input className={inputClass} value={content.contact.phone2} onChange={(e) => setContent({ ...content, contact: { ...content.contact, phone2: e.target.value } })} />
             </div>
             <div>
               <label className={labelClass}>E-posta</label>

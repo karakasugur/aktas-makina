@@ -32,8 +32,7 @@ interface Service {
     sliderImages: string[];
     contact: {
       address: string;
-      phone1: string;
-      phone2: string;
+      phone1: string; // UKARAKAS 09.11.2026 - phone2 removed, single phone number
       email: string;
     };
   }
@@ -97,8 +96,7 @@ interface Service {
     ],
     contact: {
       address: "Altınşehir, Atlas Sk. No:7, 34775 Ümraniye/İstanbul",
-      phone1: "+90 544 211 82 86",
-      phone2: "+90 533 143 18 34",
+      phone1: "+90 544 211 82 86", // UKARAKAS 09.11.2026 - phone2 removed
       email: "info@aktasmakinagrup.com",
     },
   };
