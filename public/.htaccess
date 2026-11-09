@@ -4,6 +4,14 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # UKARAKAS 09.11.2026 - one address for visitors and Google: always https://www.aktasmakinagrup.com
+  # (SSL certificate checks under /.well-known stay reachable over http)
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.aktasmakinagrup.com%{REQUEST_URI} [L,R=301]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
