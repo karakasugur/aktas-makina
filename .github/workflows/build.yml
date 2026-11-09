@@ -1,6 +1,6 @@
 # Author: UKARAKAS | Date: 09.11.2026 | Builds the site, tests the PHP API and publishes site.zip
 # Every push builds and tests. Pushes to main also update the "guncel-site" release, whose
-# site.zip is uploaded to Turhost by hand:
+# site.zip is uploaded to Güzel Hosting by hand:
 # https://github.com/karakasugur/aktas-makina/releases/download/guncel-site/site.zip
 name: Siteyi derle
 
@@ -55,9 +55,9 @@ jobs:
         run: |
           gh release delete guncel-site --yes --cleanup-tag || true
           gh release create guncel-site site.zip --target "$GITHUB_SHA" --title "Güncel site" \
-            --notes "Turhost'a yüklenecek güncel site. Commit: $GITHUB_SHA"
+            --notes "Güzel Hosting'e yüklenecek güncel site. Commit: $GITHUB_SHA"
 
-      # UKARAKAS 09.11.2026 - builds of other branches go to a test release (not for Turhost)
+      # UKARAKAS 09.11.2026 - builds of other branches go to a test release (not for Güzel Hosting)
       - name: Önizleme sürümünü yayınla
         if: github.ref != 'refs/heads/main'
         env:
@@ -65,4 +65,4 @@ jobs:
         run: |
           gh release delete onizleme --yes --cleanup-tag || true
           gh release create onizleme site.zip --target "$GITHUB_SHA" --prerelease --title "Önizleme ($GITHUB_REF_NAME)" \
-            --notes "Sadece test için. Turhost'a bunu değil, 'guncel-site' zip'ini yükleyin."
+            --notes "Sadece test için. Hostinge bunu değil, 'guncel-site' zip'ini yükleyin."

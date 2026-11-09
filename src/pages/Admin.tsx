@@ -135,7 +135,7 @@ const PasswordPanel = ({ onAuthLost }: { onAuthLost: () => void }) => {
         {busy ? <Loader2 size={16} className="animate-spin" /> : <KeyRound size={16} />} Şifreyi Değiştir
       </button>
       <p className="text-xs text-muted-foreground pt-4">
-        Şifrenizi unutursanız: Turhost dosya yöneticisinde <code>api/data/admin.php</code> dosyasını silin, sonra panele girip yeni şifre belirleyin.
+        Şifrenizi unutursanız: hosting (Güzel Hosting) dosya yöneticisinde <code>api/data/admin.php</code> dosyasını silin, sonra panele girip yeni şifre belirleyin.
       </p>
     </form>
   );

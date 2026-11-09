@@ -1,4 +1,4 @@
-# Author: UKARAKAS | Date: 09.11.2026 | Apache settings for the single-page site on Turhost
+# Author: UKARAKAS | Date: 09.11.2026 | Apache settings for the single-page site on Güzel Hosting
 
 # Send every page address (/contact, /admin, ...) to index.html; real files are served as they are
 <IfModule mod_rewrite.c>

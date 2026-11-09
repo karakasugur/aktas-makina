@@ -2,14 +2,14 @@
 
 <!-- Author: UKARAKAS | Date: 09.11.2026 | Project notes in Turkish -->
 
-[www.aktasmakinagrup.com](https://www.aktasmakinagrup.com): React + Vite ile yapılmış site. Admin paneli ve iletişim formu için hostingde küçük PHP dosyaları çalışır (`public/api`). Site Turhost'ta barınır.
+[www.aktasmakinagrup.com](https://www.aktasmakinagrup.com): React + Vite ile yapılmış site. Admin paneli ve iletişim formu için hostingde küçük PHP dosyaları çalışır (`public/api`). Site Güzel Hosting'te barınır (guzel.net.tr); Turhost'ta sadece alan adı var.
 
-## Siteyi güncelleme (Turhost)
+## Siteyi güncelleme (Güzel Hosting)
 
 1. `main` dalına yapılan her değişiklikten sonra GitHub siteyi kendisi derler ve hazır zip'i şuraya koyar:
    **https://github.com/karakasugur/aktas-makina/releases/download/guncel-site/site.zip**
 2. Zip'i indirin.
-3. Turhost panelinde **Dosya Yöneticisi**'ni açın, sitenin klasörüne (`public_html`) gidin.
+3. Güzel Hosting panelinde **Dosya Yöneticisi**'ni açın, sitenin klasörüne (`public_html`) gidin.
 4. Zip'i bu klasöre yükleyin ve **"Çıkart / Extract"** deyin. Var olan dosyaların üzerine yazmasına izin verin.
 5. Yüklediğiniz zip dosyasını silin.
 
